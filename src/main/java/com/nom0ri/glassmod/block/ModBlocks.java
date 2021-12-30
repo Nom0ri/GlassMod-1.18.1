@@ -1,6 +1,7 @@
 package com.nom0ri.glassmod.block;
 
 import com.nom0ri.glassmod.GlassMod;
+import com.nom0ri.glassmod.item.ModCreativeModTab;
 import com.nom0ri.glassmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -21,7 +22,18 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, GlassMod.MOD_ID);
 
     public static final RegistryObject<Block> GLASS_SLAB = registerBlock("glass_slab",
-            () -> new SlabBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(3f).noOcclusion()));
+            () -> new SlabBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noOcclusion()));
+
+    private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerBlockItem(name, toReturn, tab);
+        return toReturn;
+    }
+
+    private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block, CreativeModeTab tab) {
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
+                new Item.Properties().tab(tab)));
+    }
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
@@ -31,7 +43,7 @@ public class ModBlocks {
 
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
+                new Item.Properties().tab(ModCreativeModTab.GLASS_TAB)));
     }
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);

@@ -1,4 +1,5 @@
 {
   "item.glassmod.glass_door": "Glass Door",
-  "block.glassmod.glass_slab:": "Glass Slab"
+  "block.glassmod.glass_slab": "Glass Slab",
+  "itemGroup.glasstab": "Glass Mod"
 }
