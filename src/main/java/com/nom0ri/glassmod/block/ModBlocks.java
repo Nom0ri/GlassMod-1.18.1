@@ -8,6 +8,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,7 +23,7 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, GlassMod.MOD_ID);
 
     public static final RegistryObject<Block> GLASS_SLAB = registerBlock("glass_slab",
-            () -> new SlabBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noOcclusion()));
+            () -> new SlabBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noOcclusion().sound(SoundType.GLASS)));
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
