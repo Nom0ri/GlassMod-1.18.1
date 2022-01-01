@@ -12,7 +12,7 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, GlassMod.MOD_ID);
 
-    public static final RegistryObject<Item> GLASS_DOOR = ITEMS.register("glass_door",
+    public static final RegistryObject<Item> GLASS_X = ITEMS.register("glass_x",
             () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
 
     public static void register(IEventBus eventBus) {

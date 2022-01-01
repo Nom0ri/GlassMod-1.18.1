@@ -4,6 +4,7 @@ import com.nom0ri.glassmod.block.ModBlocks;
 import com.nom0ri.glassmod.item.ModItems;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.item.PotionItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -46,6 +47,9 @@ public class GlassMod
 
     private void setupClient(final FMLClientSetupEvent event) {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.GLASS_SLAB.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.GLASS_DOOR.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.GLASS_PLATE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.INV_PLATE.get(), RenderType.cutout());
     }
 
 

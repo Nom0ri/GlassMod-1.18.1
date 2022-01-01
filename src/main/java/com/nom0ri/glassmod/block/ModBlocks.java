@@ -6,9 +6,7 @@ import com.nom0ri.glassmod.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -24,6 +22,15 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> GLASS_SLAB = registerBlock("glass_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(0.3f).noOcclusion().sound(SoundType.GLASS)));
+
+    public static final RegistryObject<Block> GLASS_DOOR = registerBlock("glass_door",
+            () -> new DoorBlock(BlockBehaviour.Properties.of(Material.GLASS).strength(1f).noOcclusion().sound(SoundType.GLASS)));
+
+    public static final RegistryObject<Block> GLASS_PLATE = registerBlock("glass_plate",
+            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.GLASS).strength(1f).noOcclusion().sound(SoundType.GLASS)));
+
+    public static final RegistryObject<Block> INV_PLATE = registerBlock("inv_plate",
+            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.GLASS).strength(1f).noOcclusion().sound(SoundType.GLASS)));
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

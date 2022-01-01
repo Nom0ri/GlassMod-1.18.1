@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "glassmod:glass_plate"
+    },
+    {
+      "item": "minecraft:fermented_spider_eye"
+    }
+  ],
+  "result": {
+    "item": "glassmod:inv_plate"
+  }
+}
